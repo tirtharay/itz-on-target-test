@@ -2,17 +2,23 @@ jQuery(function ($) {
 
     $('body').on('submit', '#itz-newsletter', function (e) {
         e.preventDefault();
-
         var name = jQuery('.itz-input.name').val();
         var email = jQuery('.itz-input.email').val();
-
         var isValid = valiadteItzForm(name, email);
-
         if (isValid) {
             submitItzForm(name, email); // submit form 
         }
-
     });
+
+    $('body').on('click', '.itz-close', function () {
+        $('.itz-modal-backdrop').removeClass('show');
+    });
+
+    if ($('.itz-modal-wrap').length > 0) {
+        setTimeout(function () {
+            $('.itz-modal-backdrop').addClass('show');
+        }, 1000);
+    }
 
 });
 
@@ -30,8 +36,6 @@ function valiadteItzForm(name, email) {
 
 }
 
-
-
 function submitItzForm(name, email) {
 
     jQuery.ajax({
@@ -45,8 +49,9 @@ function submitItzForm(name, email) {
             email: email,
         },
         success: function (response) {
-            alert("Your vote could not be added");
-            alert(response);
+            if (response.success) {
+                jQuery('.itz-modal-backdrop').remove();
+            }
         }
     });
 

@@ -10,10 +10,6 @@ if (!class_exists('IM_INIT')) {
         {
             add_action('wp_enqueue_scripts', [$this,  'add_itz_modal_scripts_css']);
             add_action('wp_footer', [$this,  'itz_modal']);
-
-            // Ajax for newsletter 
-            add_action('wp_ajax_nopriv_custom_script_name', [$this, 'itz_newsletter_ajax']);
-            add_action('wp_ajax_custom_script_name', [$this, 'itz_newsletter_ajax']);
         }
 
         /**
@@ -21,10 +17,10 @@ if (!class_exists('IM_INIT')) {
          */
         public function add_itz_modal_scripts_css()
         {
-            // Load styles 
+            // Load styles
             wp_enqueue_style('itz-modal-css', IM_URL . '/assets/css/itz-modal.css', array(), IM_VER);
 
-            // Load Scripts 
+            // Load Scripts
             wp_enqueue_script('itz-modal-js', IM_URL . '/assets/js/itz-modal.js', array('jquery'), IM_VER, true);
             wp_localize_script(
                 'itz-modal-js',
@@ -41,32 +37,11 @@ if (!class_exists('IM_INIT')) {
          */
         public function itz_modal()
         {
+            // $is_subscribed = $_SESSION['itx_subscribed'] ?? '';
+            $is_subscribed = $_COOKIE['itz_subscribed'] ?? '';
+            if ($is_subscribed === 'yes') return;
+
             include IM_PATH . '/templates/itz-modal.php';
-        }
-
-
-        /**
-         * Submit newsletter to DB :)
-         */
-        public function itz_newsletter_ajax()
-        {
-            $nonce = $_POST['nonce'] ?? '';
-            $name = $_POST['name'] ?? '';
-            $email = $_POST['email'] ?? '';
-
-            $res = [
-                'success' => false,
-            ];
-
-            if (empty($nonce) || empty($name) || empty($email)) {
-                $res['error'] = 'Missing data';
-                wp_send_json($res);
-                exit;
-            }
-
-            if (!wp_verify_nonce($_POST['nonce'], 'ajax-nonce')) {
-                die('Busted!');
-            }
         }
     }
 

@@ -36,3 +36,28 @@ if (!defined('IM_PATH'))
 
 require IM_PATH . 'controller/ajax.php'; // init all ajax
 require IM_PATH . 'controller/public-init.php'; // init fronted plugins
+
+
+//  On activation create new table to store the itz newsletter 
+register_activation_hook(__FILE__, 'itz_activation');
+function itz_activation()
+{
+    global $wpdb;
+    $db_table_name = $wpdb->prefix . 'itz_newsletter';  // table name
+    $charset_collate = $wpdb->get_charset_collate();
+
+    // Check to see if the table exists already, if not, then create it
+    if ($wpdb->get_var("show tables like '$db_table_name'") != $db_table_name) {
+        // Table to keep user Buy and reedeem status
+        $sql = "CREATE TABLE $db_table_name (
+                id int(11) NOT NULL auto_increment,
+                name varchar(255) NOT NULL,
+                email varchar(255) NOT NULL,
+                date datetime NOT NULL DEFAULT current_timestamp(),
+                UNIQUE KEY id (id)
+          ) $charset_collate;";
+
+        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+        dbDelta($sql);
+    }
+}

@@ -1,4 +1,13 @@
-.modal-backdrop {
+.itz-modal-backdrop {
+    display: none;
+}
+
+.itz-modal-backdrop.show {
+    display: block;
+}
+
+
+.itz-modal-backdrop {
     background: #20222aeb;
     position: fixed;
     top: 0;
@@ -85,4 +94,14 @@ input[type="submit"] {
     line-height: 2;
     border-radius: 0.5rem;
     color: #fff;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

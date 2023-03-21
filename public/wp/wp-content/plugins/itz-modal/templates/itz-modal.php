@@ -1,5 +1,5 @@
 <div class="itz-modal-backdrop">
-    <div class="itz-modal-wrap">
+    <div class="itz-modal-wrap ">
         <div class="itz-header">
             <h3 class="itz-title">PRUNDERGROUND NEWSLETTER</h3>
         </div>
