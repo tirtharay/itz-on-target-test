@@ -24,7 +24,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 90%;
     pointer-events: auto;
     background-color: #fff;
     background-clip: padding-box;
@@ -94,6 +94,14 @@ input[type="submit"] {
     line-height: 2;
     border-radius: 0.5rem;
     color: #fff;
+    cursor: pointer;
+}
+
+.itz-form-error{
+    color: #e24e50;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 10px;
 }
 
 @keyframes fadeIn {

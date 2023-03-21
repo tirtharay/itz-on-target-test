@@ -39,7 +39,7 @@ if (!class_exists('IM_INIT')) {
         {
             // $is_subscribed = $_SESSION['itx_subscribed'] ?? '';
             $is_subscribed = $_COOKIE['itz_subscribed'] ?? '';
-            if ($is_subscribed === 'yes') return;
+            if ($is_subscribed !== true && $is_subscribed !== '') return;
 
             include IM_PATH . '/templates/itz-modal.php';
         }

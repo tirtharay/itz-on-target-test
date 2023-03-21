@@ -50,11 +50,6 @@ function itz_newsletter_ajax()
         'email' => sanitize_text_field($email),
     ));
 
-
-    setcookie("itz_subscribed", "yes", 2147483647, '/', $_SERVER['HTTP_HOST']);
-
-
-
     $res['success'] = true;
     wp_send_json($res);
     exit;

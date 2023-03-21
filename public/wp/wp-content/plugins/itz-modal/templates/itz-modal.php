@@ -4,6 +4,7 @@
             <h3 class="itz-title">PRUNDERGROUND NEWSLETTER</h3>
         </div>
         <div class="itz-body">
+            <div class="itz-form-error"></div>
             <form id="itz-newsletter" method="">
                 <input class="itz-input name" type="text" name="name" placeholder="Your Name" value="" />
                 <input class="itz-input email" name="email" placeholder="Email Address" value="" />

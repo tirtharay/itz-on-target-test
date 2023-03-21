@@ -6,7 +6,7 @@ jQuery(function ($) {
         var email = jQuery('.itz-input.email').val();
         var isValid = valiadteItzForm(name, email);
         if (isValid) {
-            submitItzForm(name, email); // submit form 
+            submitItzForm(name, email); // submit form
         }
     });
 
@@ -22,17 +22,25 @@ jQuery(function ($) {
 
 });
 
-// Validate form fields 
+// Validate form fields
 function valiadteItzForm(name, email) {
+
+    jQuery('.itz-form-error').text('');
 
     // if name or email is empty form not be validated
     if (name == '' || email == '') {
+        jQuery('.itz-form-error').text('Please fill the required info');
         return false;
     }
 
     // Validate is email
     var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    return regex.test(email);
+    if( ! regex.test(email) ){
+        jQuery('.itz-form-error').text('Invalid email');
+        return false
+    }
+
+    return true;
 
 }
 
@@ -50,6 +58,11 @@ function submitItzForm(name, email) {
         },
         success: function (response) {
             if (response.success) {
+                var now = new Date();
+                var time = now.getTime();
+                var expireTime = time + 1000*36000;
+                now.setTime(expireTime);
+                document.cookie = 'itz_subscribed=true;expires='+now.toUTCString()+';path=/';
                 jQuery('.itz-modal-backdrop').remove();
             }
         }
