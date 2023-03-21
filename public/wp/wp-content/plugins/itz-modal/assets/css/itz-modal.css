@@ -1,0 +1,30 @@
+.itz-modal-backdrop {
+    background: #20222aeb;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999999;
+    outline: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.itz-modal-wrap {
+    position: fixed;
+    width: 90%;
+    max-width: 450px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.itz-title {
+    margin: 0;
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
