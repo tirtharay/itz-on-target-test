@@ -1,0 +1,115 @@
+.itz-modal-backdrop {
+    display: none;
+}
+
+.itz-modal-backdrop.show {
+    display: block;
+}
+
+
+.itz-modal-backdrop {
+    background: #20222aeb;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999999;
+    outline: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.itz-modal-wrap {
+    max-width: 450px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 0.3rem;
+    outline: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.itz-title {
+    margin: 0;
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 2rem;
+    padding-bottom: 0;
+    position: relative;
+}
+.itz-title:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 80%;
+    top: 100%;
+    margin: 10px auto;
+    width: 30px;
+    height: 6px;
+    background: #e24e50;
+}
+
+.itz-body{
+    position: relative;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 2rem;
+}
+
+form#itz-newsletter {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+}
+
+.itz-input {
+    padding: 0.375rem 0.75rem;
+    font-size: .90rem;
+    line-height: 2.1;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+input[type="submit"] {
+    background-color: #e24e50;
+    border: 0;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 2;
+    border-radius: 0.5rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.itz-form-error{
+    color: #e24e50;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

@@ -1,10 +1,24 @@
 # Ignore composer generated files and directories
 composer.lock
 vendor
-public/wp
-public/content/plugins/*
-public/content/themes/*
-public/content/mu-plugins/*
+public/wp/wp-admin/
+public/wp/composer.json
+public/wp/wp-content/themes
+public/wp/wp-content/plugins/akismet
+public/wp/wp-content/plugins/hello.php
+public/wp/wp-content/uploads
+public/wp/wp-content/index.php
+public/wp/wp-content/languages
+public/wp/wp-content/plugins/index.php
+public/wp/wp-content/plugins/index.php
+public/wp/wp-includes/
+public/wp/index.php
+public/wp/license.txt
+public/wp/readme.html
+public/wp/wp-*.php
+public/wp/xmlrpc.php
+tirtha-ray-assessment.code-workspace
+
 
 # Ignore configuration files, etc.
 /.env
@@ -13,12 +27,10 @@ public/content/mu-plugins/*
 
 # If you have a plugin, theme, or mu-plugin that you really do want to put into
 # version control, add an exception here. Exceptions will look like this:
-#   !public/content/plugins/plugin-folder
 !public/content/plugins/index.php
 !public/content/themes/index.php
 !public/content/mu-plugins/index.php
 !public/content/mu-plugins/register-theme-directory.php
-
 # Ignore the local config
 public/local-config.php
 
